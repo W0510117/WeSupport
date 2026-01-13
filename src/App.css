@@ -1,0 +1,25 @@
+:root {
+    --bg: #0B0C10;
+    --surface: #1F2833;
+    --text: #C5C6C7;
+    --muted: #9AA0A6;
+    --accent: #66FCF1;
+    --accent-soft: #45A29E;
+}
+
+/* deafult text color */
+.home {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.home-hero {
+    max-width: 980px;
+    margin: 0 auto 36px auto;
+    padding: 28px; 
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(31,40,51,0.95), rgba(31,40,51,0.75));
+    border: 1px solid rgba(197, 198, 199, 0.12);
+}
