@@ -2,33 +2,26 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
-function CreateAccount() {
+function Login() {
   const [formData, setFormData] = useState({
-    username: '',
     email: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const { signup } = useAuth()
+  const { login } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // Validate passwords match
-    if (formData.password !== formData.confirmPassword) {
-      return setError('Passwords do not match')
-    }
-
     try {
       setError('')
       setLoading(true)
-      await signup(formData.email, formData.password)
+      await login(formData.email, formData.password)
       navigate('/')
     } catch (err) {
-      setError('Failed to create an account: ' + err.message)
+      setError('Failed to log in: ' + err.message)
     }
 
     setLoading(false)
@@ -42,21 +35,10 @@ function CreateAccount() {
   }
 
   return (
-    <div className="create-account">
-      <h1>Create Account</h1>
+    <div className="login">
+      <h1>Log In</h1>
       {error && <div className="error-message">{error}</div>}
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
         <div>
           <label htmlFor="email">Email:</label>
           <input
@@ -79,23 +61,12 @@ function CreateAccount() {
             required
           />
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
         <button type="submit" disabled={loading}>
-          {loading ? 'Creating Account...' : 'Create Account'}
+          {loading ? 'Logging In...' : 'Log In'}
         </button>
       </form>
       <p>
-        Already have an account? <Link to="/login">Log In</Link>
+        Don't have an account? <Link to="/create-account">Create Account</Link>
       </p>
       <p>
         <Link to="/">Back to Home</Link>
@@ -104,4 +75,4 @@ function CreateAccount() {
   )
 }
 
-export default CreateAccount
+export default Login
