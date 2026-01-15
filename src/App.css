@@ -1,25 +1,279 @@
+/* ===== PEERS THEME (Dark Slate + Mint) ===== */
 :root {
-    --bg: #0B0C10;
-    --surface: #1F2833;
-    --text: #C5C6C7;
-    --muted: #9AA0A6;
-    --accent: #66FCF1;
-    --accent-soft: #45A29E;
+  --bg: #f7f6f8;
+  --surface: #7909e9;
+  --text: #ACB6FA;
+  --muted: #F6CF5D;
+  --accent: #440068;
+  --accent-soft: #45A29E;
+  
 }
 
-/* deafult text color */
+/* Basic page reset + default text color */
 .home {
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  padding: 48px 20px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+/* ===== HERO ===== */
 .home-hero {
-    max-width: 980px;
-    margin: 0 auto 36px auto;
-    padding: 28px; 
-    border-radius: 16px;
-    background: linear-gradient(180deg, rgba(31,40,51,0.95), rgba(31,40,51,0.75));
-    border: 1px solid rgba(197, 198, 199, 0.12);
+  max-width: 980px;
+  margin: 0 auto 36px auto;
+  padding: 28px;
+  border-radius: 16px;
+  --text: #000000;
+  background: linear-gradient(180deg, rgba(135, 0, 180, 0.95), rgba(197, 211, 0, 0.75));
+  border: 1px solid rgba(197, 198, 199, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.home-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.home-subtitle {
+  margin-top: 12px;
+  margin-bottom: 22px;
+  max-width: 60ch;
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* CTA container */
+.home-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== ACTION CARDS ===== */
+.home-actions {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.action-card {
+  background: linear-gradient(180deg, rgba(135, 0, 180, 0.95), rgba(197, 211, 0, 0.75));
+  border: 1px solid rgba(197, 198, 199, 0.12);
+  border: 1px solid rgba(197, 198, 199, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.action-card p {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+/* ===== BUTTONS (Links styled as buttons) ===== */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 650;
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease, color 120ms ease;
+  user-select: none;
+}
+
+/* Primary mint button */
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid rgba(102, 252, 241, 0.25);
+  box-shadow: 0 10px 18px rgba(102, 252, 241, 0.12);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(102, 252, 241, 0.18);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary outlined button */
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(102, 252, 241, 0.35);
+}
+
+.btn-secondary:hover {
+  background: rgba(69, 162, 158, 0.14);
+  border-color: rgba(69, 162, 158, 0.55);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Keyboard focus (accessibility) */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 3px solid rgba(102, 252, 241, 0.35);
+  outline-offset: 3px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .home-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero {
+    padding: 22px;
+  }
+}
+.peers-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.layout-content {
+  flex: 1;
+}
+
+/* ===== NAVBAR ===== */
+.peers-navbar {
+  background: #0B0C10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  color: #66FCF1;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+}
+
+.brand-tagline {
+  color: #C5C6C7;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Navbar buttons */
+.navbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Outline button */
+.btn-outline {
+  border: 1px solid rgba(102, 252, 241, 0.45);
+  color: #66FCF1;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: rgba(102, 252, 241, 0.12);
+}
+
+/* ===== FOOTER ===== */
+.peers-footer {
+  background: #0B0C10;
+  color: #C5C6C7;
+  text-align: center;
+  padding: 14px 10px;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Search Bar ===== */
+.searchbar {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.searchbar-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(197, 198, 199, 0.18);
+  background: rgba(11, 12, 16, 0.55);
+  color: var(--text);
+  outline: none;
+}
+
+.searchbar-input::placeholder {
+  color: rgba(197, 198, 199, 0.6);
+}
+
+.searchbar-input:focus {
+  border-color: rgba(102, 252, 241, 0.45);
+  box-shadow: 0 0 0 3px rgba(102, 252, 241, 0.16);
+}
+
+.searchbar-btn {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 252, 241, 0.25);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.searchbar-btn:hover {
+  filter: brightness(1.05);
 }
