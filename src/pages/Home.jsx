@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useEffect, useState } from "react";
-import { startAI } from "../api/aiClient";
+import { startAI } from "../aiServer/aiClient";
 
 function Home() {
   const { currentUser, logout } = useAuth()
@@ -31,6 +31,12 @@ function Home() {
     <div className="home">
       <h1>Welcome to WeSupport</h1>
       <p>Your support platform for community assistance</p>
+
+      {aiGreeting && (
+        <div className="ai-greeting">
+          <strong>AI:</strong> {aiGreeting}
+        </div>
+      )}
       
       {currentUser && (
         <div className="user-info">
@@ -58,4 +64,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

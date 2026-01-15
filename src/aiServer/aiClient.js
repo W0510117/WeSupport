@@ -1,7 +1,7 @@
-const AI_BASE_URL = process.env.REACT_APP_AI_URL || "http://localhost:5000";
+const AI_BASE_URL = import.meta.env.VITE_AI_URL || "http://localhost:5000";
 
 export async function startAI() {
-  const res = await fetch(`${AI_BASE_URL}/api/ai/start`, {
+  const res = await fetch(`${AI_BASE_URL}/aiServer/ai/start`, {
     method: "POST",
     headers: { "Content-Type": "application/json" }
   });
